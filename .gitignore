@@ -1,0 +1,6 @@
+*.db
+*.pyc
+*.html
+*.xml
+*.txt
+*.sql
