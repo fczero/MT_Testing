@@ -7,7 +7,7 @@ import db_tables
 Target_MT_Version_LTE                  = "Version 19.00.01"
 Target_MT_Version_3G                   = Target_MT_Version_LTE
 Target_SNR_Version_LTE                 = "Version 7.00 LTE"
-Target_SNR_Version_3G                  = "Version 3.00 3G"
+Target_SNR_Version_3G                  = "Version 4.00 3G"
 
 #skipped parameter name columns during per column checking
 Skipped_Columns_List                   = [

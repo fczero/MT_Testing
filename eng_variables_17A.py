@@ -7,7 +7,7 @@ import db_tables
 Target_MT_Version_LTE                  = "Version 19.00.01"
 Target_MT_Version_3G                   = Target_MT_Version_LTE
 Target_SNR_Version_LTE                 = "Version 7.00 LTE"
-Target_SNR_Version_3G                  = "Version 3.00 3G"
+Target_SNR_Version_3G                  = "Version 4.00 3G"
 
 #skipped parameter name columns during per column checking
 Skipped_Columns_List                   = [
@@ -347,7 +347,7 @@ Macro_1361_old_parameters_indices      = [ [], [0,
                                                22] ]
 
 Macro_1361_parameter_name              = ["API ID",
-                                          "MAC SDU Transmission Rate1 (non-TM9, non-4TxTM4)(status)",
+                                          "MAC SDU Transmission Rate1 (non-TM9, non-4TxTM4) (status)",
                                           "MAC SDU Transmission Rate1 (non-TM9, non-4TxTM4) (value)",
                                           "MAC SDU Transmission Rate2 (non-TM9, non-4TxTM4) (status)",
                                           "MAC SDU Transmission Rate2 (non-TM9, non-4TxTM4) (value)",

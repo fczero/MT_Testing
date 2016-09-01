@@ -1,3 +1,4 @@
+# edited in testing
 # Table columns
 CP_MACRO_NAME = ('macro_no',
                  'division1',
