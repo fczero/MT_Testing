@@ -1,7 +1,6 @@
 *** Settings ***
 Resource          MTDatabase.robot
 Default Tags        Common
-#1.0.1 changes based on 9.2.2
 
 *** Test Cases ***
 Version Check MT
