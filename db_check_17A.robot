@@ -5,11 +5,13 @@ Default Tags        Common
 
 *** Test Cases ***
 Version Check MT
+    [Tags]      Test        Common
     [Template]                  Check MT version info 
     ${Target MT Version LTE}    LTE
     ${Target MT Version 3G}     3G
 
 Version Check SNR
+    [Tags]      Test        Common
     [Template]                  Check SNR version info
     ${Target SNR Version LTE}   LTE
     ${Target SNR Version 3G}    3G
