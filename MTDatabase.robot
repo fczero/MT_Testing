@@ -78,6 +78,7 @@ Check if parameter attribute is correct from index
 #test
 
 Check if combo box string is correct
+    [Documentation]         Checks the parameter price name, index is one-based
     [Arguments]                   ${parameter no}        ${combo index}       ${combo string}
     ${actual} =                   Get Combo Box Value Attribute    ${parameter no}   ${combo index}    parameter_price_name
     Log Parameter Info      ${parameter no}

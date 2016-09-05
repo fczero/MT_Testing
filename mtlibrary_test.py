@@ -4,7 +4,7 @@ import mtlibrary
 import db_tables
 
 
-class TestDbHelper(unittest.TestCase):
+class TestMTLibrary(unittest.TestCase):
 
     def setUp(self):
         self.api           = 2389
@@ -30,6 +30,7 @@ class TestDbHelper(unittest.TestCase):
 #        for index, param in enumerate(self.info):
 #            print index, param
 
+"""
     def test_get_number_of_params(self):
         self.assertEqual(self.mt_library.getNumParams(self.info[0]), \
             int(self.info[0][mtlibrary.PARAM_COUNT]))
@@ -190,10 +191,9 @@ class TestDbHelper(unittest.TestCase):
         self.assertEqual(actual_name, expected_name)
 
     def test_class_init(self):
-        default_object = MTLibrary()
-        object_with_parameter = MTLibrary('..\\')
+        default_object = mtlibrary.MTLibrary()
+        object_with_parameter = mtlibrary.MTLibrary('..\\')
 
-"""
 """
         
 if __name__ == "__main__":

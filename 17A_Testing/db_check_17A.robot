@@ -16,11 +16,6 @@ Version Check SNR
     ${Target SNR Version 3G}    3G
 
 #===========================================================================================================
-Macro 1240 limit print string
-    [Tags]          1240    Common
-    Check if limit print string is correct   1139    ${Macro 1240 limit print string 1_511}
-
-#===========================================================================================================
 Macro 1247 Name
     [Tags]          1247    Common
     Macro Name For Macro 1247 Should Be ${Macro 1247 name}

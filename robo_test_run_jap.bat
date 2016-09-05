@@ -1,1 +1,1 @@
-robot --variablefile jap_variables_17A.py -i Test -L trace db_check_17A.robot
+robot --variablefile jap_variables_urec.py -i Test -L trace db_check_urec.robot

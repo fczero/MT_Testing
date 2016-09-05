@@ -11,21 +11,32 @@ STR_PARAM_COUNT   = 4
 DB_MACRO_NAME_COL = len(db_tables.CP_MACRO_NAME)
 NAME              = 0
 
-DB_PATH       = '.\\'
-CP_PARA_NAME  = DB_PATH + 'cp_para_name.db'
-VER_INFO      = DB_PATH + 'VER_INFO.db'
-VER_INFO_3G   = DB_PATH + '3G_VER_INFO.db'
-CP_COMBO_NAME = DB_PATH + 'cp_combo_name.db'
-CP_END_NAME   = DB_PATH + 'cp_end_name.db'
-CP_MACRO_NAME = DB_PATH + 'cp_macro_name.db'
-CP_STR_PTR    = DB_PATH + 'cp_str_ptr.db'
-VER_INFO_LTE  = 'VER_INFO.db'
-VER_INFO_3G   = '3G_VER_INFO.db'
+
+class MTLibrary:
 
 
-class   MTLibrary:
+    DB_PATH       = ''
+    CP_PARA_NAME  = ''
+    VER_INFO      = ''
+    VER_INFO_3G   = ''
+    CP_COMBO_NAME = ''
+    CP_END_NAME   = ''
+    CP_MACRO_NAME = ''
+    CP_STR_PTR    = ''
+    VER_INFO_LTE  = ''
+    VER_INFO_3G   = ''
 
     def __init__(self, path='.\\'):
+        self.DB_PATH       = path
+        self.CP_PARA_NAME  = self.DB_PATH + 'cp_para_name.db'
+        self.VER_INFO      = self.DB_PATH + 'VER_INFO.db'
+        self.VER_INFO_3G   = self.DB_PATH + '3G_VER_INFO.db'
+        self.CP_COMBO_NAME = self.DB_PATH + 'cp_combo_name.db'
+        self.CP_END_NAME   = self.DB_PATH + 'cp_end_name.db'
+        self.CP_MACRO_NAME = self.DB_PATH + 'cp_macro_name.db'
+        self.CP_STR_PTR    = self.DB_PATH + 'cp_str_ptr.db'
+        self.VER_INFO_LTE  = 'VER_INFO.db'
+        self.VER_INFO_3G   = '3G_VER_INFO.db'
         
 
 

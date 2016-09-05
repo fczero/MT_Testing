@@ -253,7 +253,9 @@ def getComboInfo(key, db_name=CP_COMBO_NAME):
     return info
 
 def Get_Combo_Box_Value_Attribute(key, comboIndex, column):
-    """ given parameter number, combo index,  column name returns value as string """
+    """ given parameter number, combo index,  column name returns value as string 
+        index is one-based
+    """
     info = getComboInfo(key)
     col = int(db_tables.CP_COMBO_NAME.index(column))
     return (info[int(comboIndex)-1][col])

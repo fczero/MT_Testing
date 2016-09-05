@@ -20,33 +20,30 @@ Skipped_Columns_List                   = [
                                           ]
 
 #===========================================================================================================
-Macro_1240_limit_print_string_1_511    =    u"0 ～ 255"
-
-#===========================================================================================================
-Macro_1247_name                        = u"Pagingメッセージ送信マクロ4"
+Macro_1247_name                        = "Paging Message Transmission 4"
 
 #to be excluded in the filter parameter list creation
 Macro_1247_new_parameters_indices      = [ [5, 7, 8, 9, 10, 11, 15, 16] ]
 Macro_1247_old_parameters_indices      = [ [5, 7] ]
 
 
-Macro_1247_parameter_name              = [u"Paging Frame",
-                                          u"Paging送信周期",
-                                          u"Paging Hyperframe",
-                                          u"eDRX Paging送信周期",
-                                          u"PTW start",
-                                          u"Paging Time Window",
-                                          u"送信メッセージ種別",
-                                          u"累積送信回数"]
+Macro_1247_parameter_name              = ["Paging Frame",
+                                          "Paging transmission interval",
+                                          "Paging Hyperframe",
+                                          "eDRX Paging transmission interval",
+                                          "PTW start",
+                                          "Paging Time Window",
+                                          "Transmission message type",
+                                          "Accumulated number of transmission"]
 
-Macro_1247_parameter_limit_print_string    = [u"0 ～ 511",
-                                              u"32, 64, 128, 256, 512",
-                                              u"0 ～ 255",
-                                              u"1, 2, 4, 6, 8, 10, 12, 14, 16, 32, 64, 128, 256",
-                                              u"0 ～ 1023",
-                                              u"1 ～ 16",
-                                              u"0 ～ 1",
-                                              u"1 ～ 64"]
+Macro_1247_parameter_limit_print_string    = ["0 .. 511",
+                                              "32, 64, 128, 256, 512",
+                                              "0 .. 255",
+                                              "1, 2, 4, 6, 8, 10, 12, 14, 16, 32, 64, 128, 256",
+                                              "0 .. 1023",
+                                              "1 .. 16",
+                                              "0 .. 1",
+                                              "1 .. 64"]
 
 Macro_1247_parameter_input_form        = [db_tables.INPUT_FORM.index('text field'),
                                           db_tables.INPUT_FORM.index('text field'),
@@ -67,23 +64,75 @@ Macro_1247_parameter_type              = [db_tables.DATA_TYPES.index('unsigned s
                                           db_tables.DATA_TYPES.index('unsigned short')]
 
 #===========================================================================================================
-Macro_1359_name                        = u"RB使用率報告マクロ4"
+
+Macro_1354_affected_parameter_numbers       = [1686,
+                                               1687,
+                                               1688,
+                                               1689,
+                                               1690,
+                                               1691,
+                                               1692,
+                                               1693,
+                                               1694,
+                                               1695,
+                                               1696,
+                                               1697,
+                                               1698,
+                                               1699,
+                                               1914,
+                                               1915,
+                                               1916,
+                                               1917,
+                                               4061,
+                                               4062,
+                                               4063,
+                                               4064,
+                                               4065,
+                                               4066]
+
+Macro_1354_parameter_name_changes      = ["DL RB utilization rate (status)",
+                                          "DL RB utilization rate (value)",
+                                          "UL RB utilization rate (status)",
+                                          "UL RB utilization rate (value)",
+                                          "DL RB utilization rate (DBCH) (status)",
+                                          "DL RB utilization rate (DBCH) (value)",
+                                          "DL RB utilization rate (PCH) (status)",
+                                          "DL RB utilization rate (PCH) (value)",
+                                          "DL RB utilization rate (RAR) (status)",
+                                          "DL RB utilization rate (RAR) (value)",
+                                          "DL RB utilization rate (Voice) (status)",
+                                          "DL RB utilization rate (Voice) (value)",
+                                          "UL RB utilization rate (Voice) (status)",
+                                          "UL RB utilization rate (Voice) (value)",
+                                          "DL RB utilization rate (SCell) (status)",
+                                          "DL RB utilization rate (SCell) (value)",
+                                          "DL RB utilization rate (SCell/Voice) (status)",
+                                          "DL RB utilization rate (SCell/Voice) (value)",
+                                          "DL RB utilization rate (Non-CA) (status)",
+                                          "DL RB utilization rate (Non-CA) (value)",
+                                          "DL RB utilization rate (2CC) (status)",
+                                          "DL RB utilization rate (2CC) (value)",
+                                          "DL RB utilization rate (3CC) (status)",
+                                          "DL RB utilization rate (3CC) (value)"]
+
+#===========================================================================================================
+Macro_1359_name                        = "RB Utilization Rate Report 4"
 
 #to be excluded in the filter parameter list creation
 Macro_1359_new_parameters_indices      = [ [], [0, 32, 33, 34, 35] ]
 Macro_1359_old_parameters_indices      = [ [], [0] ]
 
-Macro_1359_parameter_name              = [u"マクロ番号",
-                                          u"DL RB使用率(4CC)状態",
-                                          u"DL RB使用率(4CC)",
-                                          u"DL RB使用率(5CC)状態",
-                                          u"DL RB使用率(5CC)"]
+Macro_1359_parameter_name              = ["API ID",
+                                          "DL RB utilization rate (4CC) (status)",
+                                          "DL RB utilization rate (4CC) (value)",
+                                          "DL RB utilization rate (5CC) (status)",
+                                          "DL RB utilization rate (5CC) (value)"]
 
-Macro_1359_parameter_limit_print_string    = [u"本マクロ番号　1359",
-                                              u"0 ～ 4",
-                                              u"0 ～ 100",
-                                              u"0 ～ 4",
-                                              u"1 ～ 100"]
+Macro_1359_parameter_limit_print_string    = ["API ID 1359",
+                                              "0 .. 4",
+                                              "0 .. 100",
+                                              "0 .. 4",
+                                              "1 .. 100"]
 
 Macro_1359_parameter_input_form        = [db_tables.INPUT_FORM.index('text field'),
                                           db_tables.INPUT_FORM.index('combo box'),
@@ -97,9 +146,60 @@ Macro_1359_parameter_type              = [db_tables.DATA_TYPES.index('unsigned s
                                           db_tables.DATA_TYPES.index('unsigned short'),
                                           db_tables.DATA_TYPES.index('unsigned short')]
 
+Macro_1359_affected_parameter_indices = [8,
+                                         9,
+                                         10,
+                                         11,
+                                         12,
+                                         13,
+                                         14,
+                                         15,
+                                         16,
+                                         17,
+                                         18,
+                                         19,
+                                         20,
+                                         21,
+                                         22,
+                                         23,
+                                         24,
+                                         25,
+                                         26,
+                                         27,
+                                         28,
+                                         29,
+                                         30,
+                                         31]
+
+Macro_1359_parameter_name_changes      = ["DL RB utilization rate (status)",
+                                          "DL RB utilization rate (value)",
+                                          "UL RB utilization rate (status)",
+                                          "UL RB utilization rate (value)",
+                                          "DL RB utilization rate (DBCH) (status)",
+                                          "DL RB utilization rate (DBCH) (value)",
+                                          "DL RB utilization rate (PCH) (status)",
+                                          "DL RB utilization rate (PCH) (value)",
+                                          "DL RB utilization rate (RAR) (status)",
+                                          "DL RB utilization rate (RAR) (value)",
+                                          "DL RB utilization rate (Voice) (status)",
+                                          "DL RB utilization rate (Voice) (value)",
+                                          "UL RB utilization rate (Voice) (status)",
+                                          "UL RB utilization rate (Voice) (value)",
+                                          "DL RB utilization rate (SCell) (status)",
+                                          "DL RB utilization rate (SCell) (value)",
+                                          "DL RB utilization rate (SCell/Voice) (status)",
+                                          "DL RB utilization rate (SCell/Voice) (value)",
+                                          "DL RB utilization rate (Non-CA) (status)",
+                                          "DL RB utilization rate (Non-CA) (value)",
+                                          "DL RB utilization rate (2CC) (status)",
+                                          "DL RB utilization rate (2CC) (value)",
+                                          "DL RB utilization rate (3CC) (status)",
+                                          "DL RB utilization rate (3CC) (value)"]
+
 #===========================================================================================================
+Macro_1360_name                        = "DL Channel Utilization Status Report 5"
+
 #to be excluded in the filter parameter list creation
-Macro_1360_name                        = u"DLチャネル使用状況報告マクロ5"
 Macro_1360_new_parameters_indices      = [ [], [0,
                                                27,
                                                28,
@@ -130,51 +230,51 @@ Macro_1360_old_parameters_indices      = [ [], [0,
                                                63,
                                                64] ]
 
-Macro_1360_parameter_name              = [u"マクロ番号",
-                                          u"非TM9,非4TxTM4 Wideband CQIのRBS-ID数状態",
-                                          u"非TM9,非4TxTM4 RANK1 Wideband CQIのRBS-ID数",
-                                          u"非TM9,非4TxTM4 RANK2 Wideband CQIのRBS-ID数",
-                                          u"TM4(4×2) Wideband CQIのRBS-ID数状態",
-                                          u"TM4(4×2) RANK1 Wideband CQIのRBS-ID数",
-                                          u"TM4(4×2) RANK2 Wideband CQIのRBS-ID数",
-                                          u"TM4(4×4) Wideband CQIのRBS-ID数状態",
-                                          u"TM4(4×4) RANK1 Wideband CQIのRBS-ID数",
-                                          u"TM4(4×4) RANK2 Wideband CQIのRBS-ID数",
-                                          u"TM4(4×4) RANK3 Wideband CQIのRBS-ID数",
-                                          u"TM4(4×4) RANK4 Wideband CQIのRBS-ID数",
-                                          u"平均LCPスループット(4CC)状態",
-                                          u"平均LCPスループット(4CC)",
-                                          u"平均LCPスループット(5CC)状態",
-                                          u"平均LCPスループット(5CC)",
-                                          u"平均LCPスループット(非TM9,非4TxTM4)状態",
-                                          u"平均LCPスループット(非TM9,非4TxTM4)",
-                                          u"平均LCPスループット(TM4(4×2))状態",
-                                          u"平均LCPスループット(TM4(4×2))",
-                                          u"平均LCPスループット(TM4(4×4))状態",
-                                          u"平均LCPスループット(TM4(4×4))"]
+Macro_1360_parameter_name              = ["API ID",
+                                          "Number of RBS-ID of non-TM9, non-4TxTM4 Wideband CQI (status)",
+                                          "Number of RBS-ID of non-TM9, non-4TxTM4 RANK1 Wideband CQI (value)",
+                                          "Number of RBS-ID of non-TM9, non-4TxTM4 RANK2 Wideband CQI (value)",
+                                          "Number of RBS-ID of TM4(4x2) Wideband CQI (status)",
+                                          "Number of RBS-ID of TM4(4x2) RANK1 Wideband CQI (value)",
+                                          "Number of RBS-ID of TM4(4x2) RANK2 Wideband CQI (value)",
+                                          "Number of RBS-ID of TM4(4x4) Wideband CQI (status)",
+                                          "Number of RBS-ID of TM4(4x4) RANK1 Wideband CQI (value)",
+                                          "Number of RBS-ID of TM4(4x4) RANK2 Wideband CQI (value)",
+                                          "Number of RBS-ID of TM4(4x4) RANK3 Wideband CQI (value)",
+                                          "Number of RBS-ID of TM4(4x4) RANK4 Wideband CQI (value)",
+                                          "Average LCP throughput (4CC) (status)",
+                                          "Average LCP throughput (4CC) (value)",
+                                          "Average LCP throughput (5CC) (status)",
+                                          "Average LCP throughput (5CC) (value)",
+                                          "Average LCP throughput (non-TM9, non-4TxTM4) (status)",
+                                          "Average LCP throughput (non-TM9, non-4TxTM4) (value)",
+                                          "Average LCP throughput (TM4(4x2)) (status)",
+                                          "Average LCP throughput (TM4(4x2)) (value)",
+                                          "Average LCP throughput (TM4(4x4)) (status)",
+                                          "Average LCP throughput (TM4(4x4)) (value)"]
 
-Macro_1360_parameter_limit_print_string    = [u"本マクロ番号　1360",
-                                              u"0 ～ 4",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 4",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 4",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 65535",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295"]
+Macro_1360_parameter_limit_print_string    = ["API ID 1360",
+                                              "0 .. 4",
+                                              "0 .. 65535",
+                                              "0 .. 65535",
+                                              "0 .. 4",
+                                              "0 .. 65535",
+                                              "0 .. 65535",
+                                              "0 .. 4",
+                                              "0 .. 65535",
+                                              "0 .. 65535",
+                                              "0 .. 65535",
+                                              "0 .. 65535",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295"]
 
 Macro_1360_parameter_input_form        = [db_tables.INPUT_FORM.index('text field'),
                                           db_tables.INPUT_FORM.index('combo box'),
@@ -223,8 +323,9 @@ Macro_1360_parameter_type              = [db_tables.DATA_TYPES.index('unsigned s
                                           db_tables.DATA_TYPES.index('unsigned long')]
 
 #===========================================================================================================
+Macro_1361_name                        = "MAC SDU Transmission/Reception Rate Report 4"
+
 #to be excluded in the filter parameter list creation
-Macro_1361_name                        = u"MAC SDU送受信レート報告マクロ4"
 Macro_1361_new_parameters_indices      = [ [], [0,
                                                19,
                                                20,
@@ -245,33 +346,33 @@ Macro_1361_old_parameters_indices      = [ [], [0,
                                                21,
                                                22] ]
 
-Macro_1361_parameter_name              = [u"マクロ番号",
-                                          u"MAC SDU送信レート1(非TM9,非4TxTM4)状態",
-                                          u"MAC SDU送信レート1(非TM9,非4TxTM4)",
-                                          u"MAC SDU送信レート2(非TM9,非4TxTM4)状態",
-                                          u"MAC SDU送信レート2(非TM9,非4TxTM4)",
-                                          u"MAC SDU送信レート1(TM4(4×2))状態",
-                                          u"MAC SDU送信レート1(TM4(4×2))",
-                                          u"MAC SDU送信レート2(TM4(4×2))状態",
-                                          u"MAC SDU送信レート2(TM4(4×2))",
-                                          u"MAC SDU送信レート1(TM4(4×4))状態",
-                                          u"MAC SDU送信レート1(TM4(4×4))",
-                                          u"MAC SDU送信レート2(TM4(4×4))状態",
-                                          u"MAC SDU送信レート2(TM4(4×4))"]
+Macro_1361_parameter_name              = ["API ID",
+                                          "MAC SDU Transmission Rate1 (non-TM9, non-4TxTM4) (status)",
+                                          "MAC SDU Transmission Rate1 (non-TM9, non-4TxTM4) (value)",
+                                          "MAC SDU Transmission Rate2 (non-TM9, non-4TxTM4) (status)",
+                                          "MAC SDU Transmission Rate2 (non-TM9, non-4TxTM4) (value)",
+                                          "MAC SDU Transmission Rate1 (TM4(4x2)) (status)",
+                                          "MAC SDU Transmission Rate1 (TM4(4x2)) (value)",
+                                          "MAC SDU Transmission Rate2 (TM4(4x2)) (status)",
+                                          "MAC SDU Transmission Rate2 (TM4(4x2)) (value)",
+                                          "MAC SDU Transmission Rate1 (TM4(4x4)) (status)",
+                                          "MAC SDU Transmission Rate1 (TM4(4x4)) (value)",
+                                          "MAC SDU Transmission Rate2 (TM4(4x4)) (status)",
+                                          "MAC SDU Transmission Rate2 (TM4(4x4)) (value)"]
 
-Macro_1361_parameter_limit_print_string    = [u"本マクロ番号　1361",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295"]
+Macro_1361_parameter_limit_print_string    = ["API ID 1361",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295"]
 
 Macro_1361_parameter_input_form        = [db_tables.INPUT_FORM.index('text field'),
                                           db_tables.INPUT_FORM.index('combo box'),
@@ -302,7 +403,7 @@ Macro_1361_parameter_type              = [db_tables.DATA_TYPES.index('unsigned s
                                           db_tables.DATA_TYPES.index('unsigned long')]
 
 #===========================================================================================================
-Macro_1362_name                        = u"MAC PDU送受信レート報告マクロ5"
+Macro_1362_name                        = "MAC PDU Transmission/Reception Rate Report 5"
 
 #to be excluded in the filter parameter list creation
 Macro_1362_new_parameters_indices      = [ [], [0,
@@ -320,29 +421,29 @@ Macro_1362_old_parameters_indices      = [ [], [0,
                                                25,
                                                26] ]
 
-Macro_1362_parameter_name              = [u"マクロ番号",
-                                          u"DL MAC　PDU送信レート(4CC)状態",
-                                          u"DL MAC　PDU送信レート(4CC)",
-                                          u"DL MAC　PDU送信レート(5CC)状態",
-                                          u"DL MAC　PDU送信レート(5CC)",
-                                          u"DL MAC　PDU送信レート(非TM9,非4TxTM4)状態",
-                                          u"DL MAC　PDU送信レート(非TM9,非4TxTM4)",
-                                          u"DL MAC　PDU送信レート(TM4(4×2))状態",
-                                          u"DL MAC　PDU送信レート(TM4(4×2))",
-                                          u"DL MAC　PDU送信レート(TM4(4×4))状態",
-                                          u"DL MAC　PDU送信レート(TM4(4×4))"]
+Macro_1362_parameter_name              = ["API ID",
+                                          "DL MAC PDU Transmission Rate3(4CC) (status)",
+                                          "DL MAC PDU Transmission Rate3(4CC) (value)",
+                                          "DL MAC PDU Transmission Rate3(5CC) (status)",
+                                          "DL MAC PDU Transmission Rate3(5CC) (value)",
+                                          "DL MAC PDU Transmission Rate (Non-TM9, Non-4TxTM4) (status)",
+                                          "DL MAC PDU Transmission Rate (Non-TM9, Non-4TxTM4) (value)",
+                                          "DL MAC PDU Transmission Rate (TM4(4x2)) (status)",
+                                          "DL MAC PDU Transmission Rate (TM4(4x2)) (value)",
+                                          "DL MAC PDU Transmission Rate (TM4(4x4)) (status)",
+                                          "DL MAC PDU Transmission Rate (TM4(4x4)) (value)"]
 
-Macro_1362_parameter_limit_print_string    = [u"本マクロ番号　1362",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295",
-                                              u"0 ～ 4",
-                                              u"0 ～ 4294967295"]
+Macro_1362_parameter_limit_print_string    = ["API ID 1362",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295",
+                                              "0 .. 4",
+                                              "0 .. 4294967295"]
 
 Macro_1362_parameter_input_form        = [db_tables.INPUT_FORM.index('text field'),
                                           db_tables.INPUT_FORM.index('combo box'),
