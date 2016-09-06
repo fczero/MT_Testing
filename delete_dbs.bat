@@ -1,1 +1,2 @@
 rm *.db
+rm *.DB
