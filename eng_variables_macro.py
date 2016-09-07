@@ -4,9 +4,9 @@ import db_tables
 #                                          "",
 #                                          ""]
 
-Target_MT_Version_LTE                  = "Version 17.0.2"
+Target_MT_Version_LTE                  = "Version 18.0.0"
 #Target_MT_Version_3G                   = Target_MT_Version_LTE
-Target_SNR_Version_LTE                 = "Version 17.00"
+Target_SNR_Version_LTE                 = "Version 18.00"
 #Target_SNR_Version_3G                  = "Version 2.00 3G"
 
 #skipped parameter name columns during per column checking
