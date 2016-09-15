@@ -22,6 +22,8 @@ CP_STR_PTR    = DB_PATH + 'cp_str_ptr.db'
 VER_INFO_LTE  = 'VER_INFO.db'
 VER_INFO_3G   = '3G_VER_INFO.db'
 
+#add para atr checking
+
 def Get_Default_Value(limit_print_string):
     """ given a limit print string, returns the default value based on first number
     """
