@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# class implementation
 import sqlite3
 import db_tables
 import sys
