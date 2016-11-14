@@ -61,6 +61,17 @@ class TestMTLibrary(unittest.TestCase):
             self.assertEqual(info[index][db_tables.CP_COMBO_NAME.index('macro_no')],1017)
             self.assertEqual(info[index][db_tables.CP_COMBO_NAME.index('parameter_price')],index)
             self.assertEqual(info[index][db_tables.CP_COMBO_NAME.index('parameter_price_name')],names[index])
+
+    def test_combo_info_using_combo_value(self):
+#        info = self.mt_library.getComboInfo(1017)
+#        self.assertEqual(len(info),3)
+        names = ['SDM side not specified',\
+                 'SDM (side A) specified',\
+                 'SDM (side B) specified']
+        combo_string1 = self.mt_library.Get_Combo_Box_Value_Attribute_Using_Value(1017, 1, 'parameter_price_name')
+        combo_string2 = self.mt_library.Get_Combo_Box_Value_Attribute_Using_Value(1017, 2, 'parameter_price_name')
+        self.assertEqual(combo_string1, names[1])
+        self.assertEqual(combo_string2, names[2])
     
     def test_paraminfo_from_name(self):
         test_data = (5310.0, 0.0, 0.0, u'Number of Message data', 65535.0,\

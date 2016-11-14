@@ -226,7 +226,7 @@ class MTLibrary:
     
     def getVerDbFromRat(self, RAT_type):
         """ given RAT type returns the file name of the version database """
-        if RAT_type is 'LTE':
+        if RAT_type == 'LTE':
             db_name = self.VER_INFO
         else:
             db_name = self.VER_INFO_3G
@@ -263,6 +263,17 @@ class MTLibrary:
         info = self.getComboInfo(key)
         col = int(db_tables.CP_COMBO_NAME.index(column))
         return (info[int(comboIndex)-1][col])
+
+    def Get_Combo_Box_Value_Attribute_Using_Value(self, key, comboValue, column):
+        """ given parameter number, comboValue,  column name returns value as string 
+            returns parameter price name
+        """
+        info = self.getComboInfo(key)
+        col = int(db_tables.CP_COMBO_NAME.index(column))
+        pp_col = int(db_tables.CP_COMBO_NAME.index('parameter_price'))
+        for index, line in enumerate(info):
+            if int(info[int(index)][pp_col]) == int(comboValue):
+                return info[int(index)][col]
     
     def getParaInfo(self, key, db_name=None):
         """ given macro number search para name db returns tuple of queries """
