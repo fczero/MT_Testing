@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     MT Database related keywords
+Documentation     MT Database related keywords using module implementation
 Library           String
 Library           Collections
 Library           db_helper

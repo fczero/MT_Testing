@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
-import mtlibrary
+import MTLibrary
 import db_tables
 
 
@@ -8,7 +8,7 @@ class TestMTLibrary(unittest.TestCase):
 
     def setUp(self):
         self.api           = 2389
-        self.mt_library    = mtlibrary.MTLibrary('./testing_dbs')
+        self.mt_library    = MTLibrary.MTLibrary('./testing_dbs')
         self.info          = self.mt_library.getMacroInfo(str(self.api))
         self.paramsAll     = self.mt_library.getParamsAll(self.info)
         self.paramsInfoAll = self.mt_library.getParamsInfoAll(self.paramsAll)
@@ -24,19 +24,19 @@ class TestMTLibrary(unittest.TestCase):
         self.paramsInfoWithStrAll = self.mt_library.insertStrParamsAll(self.paramsInfoAll)
 
     def test_get_macro_info(self):
-        self.assertEqual(self.info[0][mtlibrary.NAME], float(self.api))
-        self.assertEqual(len(self.info[0]), mtlibrary.DB_MACRO_NAME_COL)
+        self.assertEqual(self.info[0][MTLibrary.NAME], float(self.api))
+        self.assertEqual(len(self.info[0]), MTLibrary.DB_MACRO_NAME_COL)
         self.assertEqual(len(self.info),2)
 
     def test_get_number_of_params(self):
         self.assertEqual(self.mt_library.getNumParams(self.info[0]), \
-            int(self.info[0][mtlibrary.PARAM_COUNT]))
+            int(self.info[0][MTLibrary.PARAM_COUNT]))
         self.assertEqual(self.mt_library.getNumParams(self.info[1]), \
-            int(self.info[1][mtlibrary.PARAM_COUNT]))
+            int(self.info[1][MTLibrary.PARAM_COUNT]))
 
     def test_get_params_list(self):
-        self.assertEqual(len(self.paramsAll[0]), int(self.info[0][mtlibrary.PARAM_COUNT]))
-        index = mtlibrary.PARAM_COUNT
+        self.assertEqual(len(self.paramsAll[0]), int(self.info[0][MTLibrary.PARAM_COUNT]))
+        index = MTLibrary.PARAM_COUNT
         for param in self.paramsAll[0]:
             index += 1
             self.assertEqual(param, self.info[0][index])
@@ -205,8 +205,8 @@ class TestMTLibrary(unittest.TestCase):
 
 """
     def test_class_init(self):
-        default_object = mtlibrary.MTLibrary()
-        object_with_parameter = mtlibrary.MTLibrary('..\\')
+        default_object = MTLibrary.MTLibrary()
+        object_with_parameter = MTLibrary.MTLibrary('..\\')
 
 """
         
