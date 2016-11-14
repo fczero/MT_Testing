@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+
 # class implementation
 import sqlite3
 import db_tables
 import sys
 import re
+import os
 
 PARAM_COUNT       = db_tables.CP_MACRO_NAME.index('parameter_count')
 STRUCT_KEY        = db_tables.CP_PARA_NAME.index('Struct_key')
@@ -15,31 +17,16 @@ NAME              = 0
 class MTLibrary:
 
 
-    DB_PATH       = ''
-    CP_PARA_NAME  = ''
-    VER_INFO      = ''
-    VER_INFO_3G   = ''
-    CP_COMBO_NAME = ''
-    CP_END_NAME   = ''
-    CP_MACRO_NAME = ''
-    CP_STR_PTR    = ''
-    VER_INFO_LTE  = ''
-    VER_INFO_3G   = ''
-
-    def __init__(self, path='.\\'):
+    def __init__(self, path='.'):
         self.DB_PATH       = path
-        self.CP_PARA_NAME  = self.DB_PATH + 'cp_para_name.db'
-        self.VER_INFO      = self.DB_PATH + 'VER_INFO.db'
-        self.VER_INFO_3G   = self.DB_PATH + '3G_VER_INFO.db'
-        self.CP_COMBO_NAME = self.DB_PATH + 'cp_combo_name.db'
-        self.CP_END_NAME   = self.DB_PATH + 'cp_end_name.db'
-        self.CP_MACRO_NAME = self.DB_PATH + 'cp_macro_name.db'
-        self.CP_STR_PTR    = self.DB_PATH + 'cp_str_ptr.db'
-        self.VER_INFO_LTE  = 'VER_INFO.db'
-        self.VER_INFO_3G   = '3G_VER_INFO.db'
+        self.CP_PARA_NAME  = os.path.join(self.DB_PATH, 'cp_para_name.db')
+        self.VER_INFO      = os.path.join(self.DB_PATH, 'VER_INFO.db')
+        self.VER_INFO_3G   = os.path.join(self.DB_PATH, '3G_VER_INFO.db')
+        self.CP_COMBO_NAME = os.path.join(self.DB_PATH, 'cp_combo_name.db')
+        self.CP_END_NAME   = os.path.join(self.DB_PATH, 'cp_end_name.db')
+        self.CP_MACRO_NAME = os.path.join(self.DB_PATH, 'cp_macro_name.db')
+        self.CP_STR_PTR    = os.path.join(self.DB_PATH, 'cp_str_ptr.db')
         
-
-
     def Get_Default_Value(self, limit_print_string):
         """ given a limit print string, returns the default value based on first number
         """
@@ -234,33 +221,32 @@ class MTLibrary:
             (SELECT MAX({col}) FROM {table})".format(table=table_name, col=column)
         c.execute(query)
         info  = c.fetchone()
-        print 'Last Entry:', info
+#        print 'Last Entry:', info
         return info
     
     def getVerDbFromRat(self, RAT_type):
         """ given RAT type returns the file name of the version database """
-        if RAT_type == 'LTE':
-            db_filename = VER_INFO_LTE
+        if RAT_type is 'LTE':
+            db_name = self.VER_INFO
         else:
-            db_filename = VER_INFO_3G
-        return db_filename
+            db_name = self.VER_INFO_3G
+        return db_name
     
-    def Get_MT_Version(self, RAT_type, db_path=DB_PATH):
+    def Get_MT_Version(self, RAT_type):
         """ returns MTVER info from last version info row in database based on RAT type """
-        filename = self.getVerDbFromRat(RAT_type)
-        db_name = db_path + filename
+        db_name = self.getVerDbFromRat(RAT_type)
         info = self.Get_Last_Row_From_Table(db_name, 'VER_INFO', 'NO')
         return info[db_tables.VER_INFO.index('MTVER')]
     
-    def Get_Scenario_Version(self, RAT_type, db_path=DB_PATH):
+    def Get_Scenario_Version(self, RAT_type):
         """ returns VER info from last version info row  in database based on RAT type """
-        filename = self.getVerDbFromRat(RAT_type)
-        db_name = db_path + filename
+        db_name = self.getVerDbFromRat(RAT_type)
         info = self.Get_Last_Row_From_Table(db_name, 'VER_INFO', 'NO')
         return info[db_tables.VER_INFO.index('VER')]
     
-    def getComboInfo(self, key, db_name=CP_COMBO_NAME):
+    def getComboInfo(self, key, db_name=None):
         """ given macro number search combo name db returns the list of tuples of queries """
+        db_name = db_name or self.CP_COMBO_NAME
         db = sqlite3.connect(db_name)
         c = db.cursor()
         info = []
@@ -271,13 +257,16 @@ class MTLibrary:
         return info
     
     def Get_Combo_Box_Value_Attribute(self, key, comboIndex, column):
-        """ given parameter number, combo index,  column name returns value as string """
+        """ given parameter number, combo index,  column name returns value as string 
+            index is one-based
+        """
         info = self.getComboInfo(key)
         col = int(db_tables.CP_COMBO_NAME.index(column))
         return (info[int(comboIndex)-1][col])
     
-    def getParaInfo(self, key, db_name=CP_PARA_NAME):
+    def getParaInfo(self, key, db_name=None):
         """ given macro number search para name db returns tuple of queries """
+        db_name = db_name or self.CP_PARA_NAME
         db = sqlite3.connect(db_name)
         c = db.cursor()
         c.execute("select * from {} where key_no = {}".format('cp_para_name', key))
@@ -285,8 +274,9 @@ class MTLibrary:
         db.close()
         return info
     
-    def getStrPtrInfo(self, struct_key, db_name=CP_STR_PTR):
+    def getStrPtrInfo(self, struct_key, db_name=None):
         """ given struct key number search str ptr db, returns tuple of queries """
+        db_name = db_name or self.CP_STR_PTR
         db = sqlite3.connect(db_name)
         c = db.cursor()
         c.execute("select * from {} where struct_key = {}".format('cp_str_ptr', struct_key))
@@ -326,20 +316,18 @@ class MTLibrary:
         db.close()
         return info
     
-    def Get_Exit_Code_Attribute(self, key, price, db_path=DB_PATH):
+    def Get_Exit_Code_Attribute(self, key, price):
         """ given macro number, parameter price returns value as string """
-        if db_path == DB_PATH:
-            db_name = CP_END_NAME
-        else:
-            db_name = db_path + 'cp_end_name.db'
+        db_name = self.CP_END_NAME
         info = self.getEndInfo(key, db_name)
         for row in info:
-            print row
+#            print row
             if row[db_tables.CP_END_NAME.index('parameter_price')] == float(price):
                 return row[db_tables.CP_END_NAME.index('parameter_price_name')]
     
-    def getMacroInfo(self, key, db_name=CP_MACRO_NAME):
+    def getMacroInfo(self, key, db_name=None):
         """ given macro number search macro name db returns the list of tuples of queries """
+        db_name = db_name or self.CP_MACRO_NAME
         db = sqlite3.connect(db_name)
         c = db.cursor()
         info = []
@@ -368,10 +356,11 @@ class MTLibrary:
         """ given list within a list of parameters returns list within a list of tuples of parameters from para name db """
         return map(self.getParamsInfo, allParamsList)
     
-    def getParamsInfo(self, paramsList, db_name=CP_PARA_NAME):
+    def getParamsInfo(self, paramsList, db_name=None):
         """ given list of parameters
             returns list of tuples of parameters from para name db
         """
+        db_name = db_name or self.CP_PARA_NAME
         db = sqlite3.connect(db_name)
         c = db.cursor()
         retVal = []
@@ -419,10 +408,11 @@ class MTLibrary:
             #print data
         return retVal
     
-    def getStrParams(self, key, db_name=CP_STR_PTR):
+    def getStrParams(self, key, db_name=None):
         """ given struct key 
             returns list of parameters
         """
+        db_name = db_name or self.CP_STR_PTR
         db = sqlite3.connect(db_name)
         c = db.cursor()
         c.execute("select * from {} where struct_key = {}".format('cp_str_ptr', key))
@@ -437,10 +427,11 @@ class MTLibrary:
                 retVal.append(value)
         return retVal
         
-    def getStrParamCount(self, key, db_name=CP_STR_PTR):
+    def getStrParamCount(self, key, db_name=None):
         """ given struct key 
             returns integer count of parameters
         """
+        db_name = db_name or self.CP_STR_PTR
         db = sqlite3.connect(db_name)
         c = db.cursor()
         c.execute("select * from {} where struct_key = {}".format('cp_str_ptr', key))

@@ -8,7 +8,7 @@ class TestMTLibrary(unittest.TestCase):
 
     def setUp(self):
         self.api           = 2389
-        self.mt_library    = mtlibrary.MTLibrary()
+        self.mt_library    = mtlibrary.MTLibrary('./testing_dbs')
         self.info          = self.mt_library.getMacroInfo(str(self.api))
         self.paramsAll     = self.mt_library.getParamsAll(self.info)
         self.paramsInfoAll = self.mt_library.getParamsInfoAll(self.paramsAll)
@@ -27,10 +27,7 @@ class TestMTLibrary(unittest.TestCase):
         self.assertEqual(self.info[0][mtlibrary.NAME], float(self.api))
         self.assertEqual(len(self.info[0]), mtlibrary.DB_MACRO_NAME_COL)
         self.assertEqual(len(self.info),2)
-#        for index, param in enumerate(self.info):
-#            print index, param
 
-"""
     def test_get_number_of_params(self):
         self.assertEqual(self.mt_library.getNumParams(self.info[0]), \
             int(self.info[0][mtlibrary.PARAM_COUNT]))
@@ -43,8 +40,6 @@ class TestMTLibrary(unittest.TestCase):
         for param in self.paramsAll[0]:
             index += 1
             self.assertEqual(param, self.info[0][index])
-#        for index, param in enumerate(self.paramsAll):
-#            print index, param
 
     def test_get_param_info_from_list(self):
         self.assertEqual(len(self.paramsAll[0]), len(self.paramsInfoAll[0]))
@@ -190,6 +185,25 @@ class TestMTLibrary(unittest.TestCase):
         actual_name = self.mt_library.Get_Macro_Name(macro_number)
         self.assertEqual(actual_name, expected_name)
 
+    def test_get_mt_version(self):
+        expected_version = 'Version 19.00.01'
+        actual_version_lte = self.mt_library.Get_MT_Version('LTE')
+        actual_version_3g = self.mt_library.Get_MT_Version('3G')
+        self.assertEqual(actual_version_lte, expected_version)
+        self.assertEqual(actual_version_3g, expected_version)
+
+    def test_get_exit_code_attrib(self):
+        expected = 'Succeeded'
+        actual = self.mt_library.Get_Exit_Code_Attribute(1004,0)
+        self.assertEqual(actual, expected)
+
+    def test_get_struct_param_count(self):
+        expected = 6
+        struct_key = 1002
+        actual = self.mt_library.getStrParamCount(struct_key)
+        self.assertEqual(actual, expected)
+
+"""
     def test_class_init(self):
         default_object = mtlibrary.MTLibrary()
         object_with_parameter = mtlibrary.MTLibrary('..\\')
