@@ -192,6 +192,14 @@ class TestMTLibrary(unittest.TestCase):
         self.assertEqual(actual_version_lte, expected_version)
         self.assertEqual(actual_version_3g, expected_version)
 
+    def test_get_snr_version(self):
+        expected_version_lte = 'Version 7.00 LTE'
+        expected_version_3g = 'Version 4.00 3G'
+        actual_version_lte = self.mt_library.Get_Scenario_Version('LTE')
+        actual_version_3g = self.mt_library.Get_Scenario_Version('3G')
+        self.assertEqual(actual_version_lte, expected_version_lte)
+        self.assertEqual(actual_version_3g, expected_version_3g)
+
     def test_get_exit_code_attrib(self):
         expected = 'Succeeded'
         actual = self.mt_library.Get_Exit_Code_Attribute(1004,0)
